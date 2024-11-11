@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e07604d316b7c3b26cdae38d528cc8f1fe86ec1f
 /* Global styles */
 * {
   margin: 0;
@@ -151,3 +155,81 @@ body {
   text-decoration: underline;
 }
 
+<<<<<<< HEAD
+=======
+=======
+:root {
+  --primary-color: #1a237e; /* Indigo */
+  --secondary-color: #ff6f00; /* Amber */
+  --tertiary-color: #388e3c; /* Green */
+  --background-color: #fafafa; /* Light grey */
+  --text-color: #212121; /* Dark grey */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+h1 {
+  color: var(--primary-color);
+  text-transform: uppercase; /* Modern heading style */
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.button {
+  background-color: var(--tertiary-color);
+  color: var(--background-color);
+  border: none; /* Remove default button styles */
+  padding: 10px 20px; /* Add some padding */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove default link styles */
+  display: inline-block; /* Make it inline */
+  font-size: 16px; /* Increase font size */
+  margin: 4px 2px; /* Add some margin */
+  transition-duration: 0.4s; /* Add transition */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.button:hover {
+  background-color: var(--background-color); /* Change background on hover */
+  color: var(--tertiary-color); /* Change text color on hover */
+}
+
+/* Rotate an element on hover */
+.rotate:hover {
+  transform: rotate(360deg);
+  transition: transform 1s;
+}
+
+/* Slide in an element from the left */
+.slide-in {
+  transform: translateX(-100%);
+  animation: slide-in 2s forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+>>>>>>> 67c1d073b8dcdb05531631443ad0bb209dc88008
+>>>>>>> e07604d316b7c3b26cdae38d528cc8f1fe86ec1f
