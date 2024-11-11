@@ -1,0 +1,153 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+body {
+  font-family: 'Press Start 2P', cursive; /* Retro font */
+  background: linear-gradient(135deg, #020911, #3285bd); /* Gradient background */
+  color: #fff; /* White text color */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Navbar styles to make it similar to the body background and text style */
+.navbar {
+  font-family: 'Press Start 2P', cursive; /* Apply the retro font to the navbar */
+  background: rgba(0, 0, 0, 0.7); /* Dark background for the navbar */
+  padding: 1rem 2rem;
+  position: fixed; /* Ensure navbar stays on top */
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar a {
+  color: #fff; /* White text color for navbar links */
+  font-size: 1.2rem; /* Font size similar to body text */
+  letter-spacing: 1px; /* Adds some space between the letters */
+  text-transform: uppercase; /* Makes the text uppercase */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Adds a subtle shadow for contrast */
+  padding: 8px 16px; /* Padding around the links */
+  transition: background 0.3s ease; /* Smooth transition for background on hover */
+}
+
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.3); /* Light hover effect */
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 1); /* Lighter shadow on hover */
+}
+
+/* Adjust navbar brand (logo) */
+.navbar-brand {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow to the brand */
+}
+
+.navbar-brand:hover {
+  color: #3285bd; /* Change color when hovering */
+}
+
+
+/* Hero Section Styling */
+.hero-section {
+  padding-top: 120px; /* Add padding to account for fixed navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+.hero-title {
+  font-size: 3rem; /* Adjust the font size */
+  margin-bottom: 950px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 200px; /* Less padding for smaller screens */
+  }
+
+  .hero-title {
+    font-size: 2rem; /* Reduce title size for small screens */
+    margin-top: 0; /* Remove any top margin */
+  }
+
+  .hero h1 {
+    font-size: 1.8rem; /* Smaller font size for the subheading */
+  }
+
+  .hero p {
+    font-size: 1.2rem; /* Reduce paragraph size */
+  }
+
+  .navbar {
+    padding: 1rem; /* Adjust navbar padding */
+  }
+
+  .navbar a {
+    font-size: 1rem; /* Smaller navbar links */
+    padding: 8px; /* Reduce padding in navbar links */
+  }
+}
+
+/* Additional styles for Contact Section */
+.contact-section {
+  padding-top: 50px; /* Adds spacing at the top of the contact section */
+}
+
+.contacts-container {
+  position: fixed; /* Fix the contact container to the bottom-right */
+  right: 20px;
+  bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contacts-container p {
+  margin: 10px 0;
+}
+
+.contacts-container a {
+  color: #4db8ff;
+  text-decoration: none;
+}
+
+.contacts-container a:hover {
+  text-decoration: underline;
+}
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website Template</title>
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+  <!-- Font Awesome CDN -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Animated Background Container -->
+  <div class="animated-background">
+    <!-- Clouds, Stars, and Trees Elements Here -->
+    <div class="clouds"></div>
+    <div class="stars"></div>
+  </div>
+
+  <!-- Your Website Content -->
+  <div class="main-container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Aapo Rotonen</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="hero-title">Hi, I'm Aapo</h1>
+            <h1><i class="fas fa-rocket"></i> Hi, I'm Aapo</h1>
+            <p style="font-family: Roboto, sans-serif; font-weight: 300; font-style: italic; text-transform: uppercase; text-align: center; text-decoration: underline;"></p>
+            <img src="me2.jpg" alt="About Image" class="img-fluid" width="125" height="75" style="margin-bottom: 0px">
+            <br>
+            <br>
+          </div>
+          <div class="col-lg-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10"></div>
+          <div class="col-lg-6">
+            <h1 class="about-title" style="margin-top: 200px">About Me</h1>
+            <p class="about-text">A Software Engineer with over 3 years of experience in 
+              developing, testing, and maintaining software 
+              applications for safety-critical related project. 
+              Positive and determined attitude who is easy to work 
+              and get along with. I enjoy learning about new 
+              technologies and other computer related stuff. 
+              Interested in creating innovative solutions that improve 
+              quality in software.  
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6"></div>
+          <div class="col-lg-6">
+            <h1 class="about-title" style="margin-top: 20px"></h1>
+            <p class="about-text">But I would like to call myself a fullstack developer / back-end developer in 
+              the future. I have a passion for programming in general but
+              especially in web development and back-end development. Learning things related to programming itself
+              is a huge interest of mine but especially those areas of expertise.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Background Section -->
+<section id="background" class="background-section">
+  <div class="container">
+    <h2 class="background-title">Background</h2>
+    <p class="background-subtitle">
+      Qt Group - Software Engineer <br>
+      September 2022 – Present <br> <br>
+      Trainee / Thesis Worker <br>
+      November 2021 – September 2022 <br><br>
+
+      Oulu University of Applied Sciences, 
+      Bachelor of Engineering  – <br>BE, Information 
+      Technology 
+      Aug 2019 – Dec 2022 <br>
+      Thesis: Automated testing in a target hardware: 
+      https://www.theseus.fi/handle/10024/785102
+    </p>
+    
+    
+    <div class="row">
+      <div class="col-lg-10"></div>
+      <div class="col-lg-6">
+        <div class="image-container" style="position: relative;">
+          <!-- Card content with text and title -->
+          <div class="overlay-text">
+            <h3 class="card-title">Qt Safe Renderer</h3>
+            <p class="card-text">
+              Worked in this safety-critical project for over 3 years. I was mainly a C++ developer for the project 
+              that included everything from developing and maintaining 
+              features, unit tests, examples, documentation to fixing bugs and also maintaining and developing our 
+              RTA hardware tests was part of my job, so I also developed and maintained 
+              tests that were created using Squish and Python.<br><br> Skills and tools used in the project: Python,
+               C++, QML, Test automation, Manual testing, Squish, Jira, 
+              Jenkins, Gerrit, Git, Linux & Windows.
+            </p>
+          </div>
+    
+          <!-- Image below the card text -->
+          <img src="car.png" alt="Safe Renderer" class="card-img-bottom" style="width: 100%; height: auto; margin-top: 20px;">
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <!-- Contact Title is outside the fixed container -->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="contacts-container">
+          <h2 class="contact-title">Contact me</h2>
+          <p>Email: <a href="mailto:Appee11@hotmail.com">Appee11@hotmail.com</a></p>
+          <p>Phone: <a href="tel:+358400777436">+358400777436</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/aapo-rotonen-abb56b187/" target="_blank">https://www.linkedin.com/in/aapo-rotonen</a></p>
+          <p>GitHub: <a href="https://github.com/AapoRotonen/" target="_blank">https://github.com/AapoRotonen/</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
