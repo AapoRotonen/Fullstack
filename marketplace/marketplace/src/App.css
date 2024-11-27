@@ -1,0 +1,308 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif; /* Clean and modern font */
+}
+
+body {
+  background-color: #f7f7f7; /* Light background for a clean look */
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #212121; /* Darker header for contrast */
+  color: #fff;
+  padding: 15px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+nav h1 {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+nav a, nav button {
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #ff5722;
+  color: #fff;
+}
+
+/* Main navigation container */
+header nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Styling for the h1 heading */
+header h1 {
+  margin: 0;
+}
+
+/* Style for the Add Product and Logout button container */
+header nav .container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align the buttons center */
+  margin: 0; /* Reset any margin on the container */
+  padding: 0; /* Reset padding if any */
+}
+
+/* Add a bit of space between the buttons */
+header nav .container > div button {
+  margin-bottom: 10px; /* Adds space between buttons */
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header nav .container > div button:hover {
+  background-color: #e64a19;
+}
+
+/* Product Cards */
+.product-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: calc(33.333% - 20px);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-card h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 15px;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #666;
+  margin: 10px 0;
+}
+
+.product-card button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-card button:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+}
+
+/* Form Styling */
+form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="text"]:focus {
+  border-color: #ff5722;
+}
+
+form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+form p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Header and Footer */
+header, footer {
+  background-color: #212121;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-card {
+      width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+      width: 100%;
+  }
+}
+
+/* Buttons */
+.btn-submit {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+/* Main navigation container */
+header nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Styling for the h1 heading */
+header h1 {
+  margin: 0;
+}
+
+/* Add a bit of space between the buttons */
+header nav .container > div button {
+  margin-bottom: 10px; /* Adds space between buttons */
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header nav .container > div button:hover {
+  background-color: #e64a19;
+}
+
+/* Style for the Product cards */
+.product-card {
+  margin: 15px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 0 200px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+
+.product-card button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #e64a19;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+
