@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import './HomePage.css'; // Import the CSS file for styling
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +17,6 @@ const HomePage = () => {
       setUser({ email: 'user@example.com' });
     }
 
-    // Fetch products (filter out sold products)
     axios.get('http://localhost:5000/products')
       .then((response) => {
         const availableProducts = response.data.filter(product => !product.sold);
@@ -26,7 +26,6 @@ const HomePage = () => {
         console.error('Error fetching products:', error);
       });
 
-    // Fetch cart items and populate the productId with product details
     axios.get('http://localhost:5000/cart')
       .then((response) => {
         setCart(response.data);
@@ -66,7 +65,6 @@ const HomePage = () => {
       if (response.status === 200) {
         setCart([]);
         alert('Purchase successful!');
-        // Re-fetch products after purchase to reflect the change
         axios.get('http://localhost:5000/products')
           .then((response) => {
             const availableProducts = response.data.filter(product => !product.sold);
@@ -85,64 +83,40 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <header>
-        <nav>
-          <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1 style={{ fontSize: '3rem', fontWeight: 'bold', color: '#fff', letterSpacing: '2px'}}>Random marketplace</h1>
-
-            <div style={{ display: 'flex', flexDirection: 'column'}}>
-              {/* Add Product Button: Only visible to logged-in users */}
-              {user && (
-                <Link to="/add-product">
-                  <button className="btn-submit" style={{ marginBottom: '10px' }}>Add Product</button>
-                </Link>
-              )}
-
-              {/* Logout Button: Only visible to logged-in users */}
-              {user && (
-                <button onClick={handleLogout} className="btn-submit">Logout</button>
-              )}
-            </div>
-          </div>
-        </nav>
-      </header>
-
+    <div className="homepage">
       <div className="container">
-        <h2>Featured Products</h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <h2 className="section-title">Featured Products</h2>
+        <div className="product-grid">
           {products.map((product) => (
             <div className="product-card" key={product._id}>
-              <img src={product.image} alt={product.name} />
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
-              <p>Price: ${product.price}</p>
-              <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+              <img src={product.image} alt={product.name} className="product-image" />
+              <h2 className="product-name">{product.name}</h2>
+              <p className="product-description">{product.description}</p>
+              <p className="product-price">Price: ${product.price}</p>
+              <button onClick={() => handleAddToCart(product)} className="btn">Add to Cart</button>
             </div>
           ))}
         </div>
       </div>
 
       <div className="container">
-        <h2>Your Cart</h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <h2 className="section-title">Your Cart</h2>
+        <div className="product-grid">
           {cart.map((item) => (
             <div className="product-card" key={item._id}>
-              <img src={item.productId.image} alt={item.productId.name} />
-              <h2>{item.productId.name}</h2>
-              <p>{item.productId.description}</p>
-              <p>Price: ${item.productId.price}</p>
+              <img src={item.productId.image} alt={item.productId.name} className="product-image" />
+              <h2 className="product-name">{item.productId.name}</h2>
+              <p className="product-description">{item.productId.description}</p>
+              <p className="product-price">Price: ${item.productId.price}</p>
             </div>
           ))}
         </div>
         {cart.length > 0 && (
-          <button className="btn-submit" onClick={handlePurchase}>
-            Proceed to Buy
-          </button>
+          <button className="btn" onClick={handlePurchase}>Proceed to Buy</button>
         )}
       </div>
 
-      <footer>
+      <footer className="footer">
         <p>&copy; 2024 Marketplace, All Rights Reserved.</p>
       </footer>
     </div>
