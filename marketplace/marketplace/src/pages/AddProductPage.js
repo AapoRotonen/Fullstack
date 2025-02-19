@@ -1,128 +1,104 @@
 import React, { useState } from 'react';
-import './AddProductPage.css'; // CSS file for custom styles
+import './AddProductPage.css';
+import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const AddProductPage = () => {
   const [product, setProduct] = useState({
     name: '',
     description: '',
     price: '',
-    image: '', // Add image field
+    image: '',
+    forSale: false 
   });
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
 
-  // Handle changes in form inputs
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setProduct((prevProduct) => ({
       ...prevProduct,
-      [name]: value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
     setError('');
     setSuccess('');
 
-    // Basic validation
-    if (!product.name || !product.description || !product.price || !product.image) {
-      setError('All fields are required.');
+    if (!product.name || !product.description || !product.price) {
+      setError('Name, description, and price are required.');
       return;
     }
 
-    try {
-      // Make a POST request to the backend
-      const response = await fetch('http://localhost:5000/products', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-      });
+    const productData = { ...product };
+    if (!product.image) delete productData.image; 
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Product added:', data);
+    try {
+      const response = await axios.post('http://localhost:5000/products', productData);
+      if (response.status === 201) {
         setSuccess('Product added successfully!');
-        // Optionally, clear form after submission
-        setProduct({
-          name: '',
-          description: '',
-          price: '',
-          image: '',
-        });
-      } else {
-        console.error('Failed to add product. Status:', response.status);
-        setError('Failed to add product. Please try again.');
+        setProduct({ name: '', description: '', price: '', image: '', forSale: false });
+        setShowPopup(true);
+        setTimeout(() => setShowPopup(false), 3000);
       }
     } catch (err) {
-      console.error('Error adding product:', err);
       setError('Error adding product. Please try again.');
     }
   };
 
   return (
-    <div className="add-product-container">
-      <h2>Add New Product for Sale</h2>
-
-      {/* Show success or error message */}
-      {success && <div className="success-message">{success}</div>}
-      {error && <div className="error-message">{error}</div>}
-
+    <motion.div 
+      className="add-product-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <h2>Add New Product</h2>
+      {success && <motion.div className="success-message" animate={{ scale: 1.1 }}>{success}</motion.div>}
+      {error && <motion.div className="error-message" animate={{ scale: 1.1 }}>{error}</motion.div>}
       <form onSubmit={handleSubmit} className="product-form">
         <div className="form-group">
           <label>Product Name</label>
-          <input
-            type="text"
-            name="name"
-            value={product.name}
-            onChange={handleChange}
-            required
-            placeholder="Enter product name"
-          />
+          <input type="text" name="name" value={product.name} onChange={handleChange} required />
         </div>
-
         <div className="form-group">
           <label>Description</label>
-          <textarea
-            name="description"
-            value={product.description}
-            onChange={handleChange}
-            required
-            placeholder="Enter product description"
-          />
+          <textarea name="description" value={product.description} onChange={handleChange} required />
         </div>
-
         <div className="form-group">
           <label>Price</label>
-          <input
-            type="number"
-            name="price"
-            value={product.price}
-            onChange={handleChange}
-            required
-            placeholder="Enter product price"
-          />
+          <input type="number" name="price" value={product.price} onChange={handleChange} required />
         </div>
-
         <div className="form-group">
-          <label>Image URL</label>
-          <input
-            type="text"
-            name="image"
-            value={product.image}
-            onChange={handleChange}
-            required
-            placeholder="Enter image URL"
-          />
+          <label>Image URL (Optional)</label>
+          <input type="text" name="image" value={product.image} onChange={handleChange} placeholder="Leave empty if no image" />
         </div>
-
-        <button type="submit" className="btn-submit">Add Product</button>
+        <div className="form-group">
+          <label>
+            <input type="checkbox" name="forSale" checked={product.forSale} onChange={handleChange} />
+            Available for Sale
+          </label>
+        </div>
+        <motion.button 
+          type="submit" 
+          className="btn-submit"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Add Product
+        </motion.button>
       </form>
-    </div>
+
+      {showPopup && (
+        <motion.div className="popup" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <p>✅ Your product has been added successfully!</p>
+        </motion.div>
+      )}
+    </motion.div>
   );
 };
 
