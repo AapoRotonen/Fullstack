@@ -2,13 +2,30 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
 
-// Fetch all products
+// Get products with optional category filtering
 router.get('/', async (req, res) => {
     try {
-        const products = await Product.find({ sold: { $ne: true } }); // Exclude sold products
-        res.json(products);
+        let filter = { sold: { $ne: true } }; // Exclude sold products
+
+        const products = await Product.find(filter);
+
+        // Categorize products
+        let categorizedProducts = {
+            featured: [], // Default category for items without a category
+        };
+
+        products.forEach(product => {
+            const category = product.category ? product.category.toLowerCase() : "featured";
+            if (!categorizedProducts[category]) {
+                categorizedProducts[category] = [];
+            }
+            categorizedProducts[category].push(product);
+        });
+
+        console.log("Categorized Products:", categorizedProducts); // Debugging log
+        res.json(categorizedProducts);
     } catch (err) {
-        console.error(err);
+        console.error('Error fetching products:', err);
         res.status(500).send('Error fetching products');
     }
 });
@@ -16,11 +33,24 @@ router.get('/', async (req, res) => {
 // Add a new product
 router.post('/', async (req, res) => {
     try {
-        const product = new Product(req.body);
+        const { name, description, price, image, category } = req.body;
+
+        if (!name || !description || !price) {
+            return res.status(400).json({ message: 'Missing required fields' });
+        }
+
+        const product = new Product({
+            name,
+            description,
+            price,
+            image: image || '', // Ensure an empty string if no image
+            category: category || 'other' // Default to 'other' if no category is provided
+        });
+
         await product.save();
-        res.json(product);
+        res.status(201).json(product);
     } catch (err) {
-        console.error(err);
+        console.error('Error adding product:', err);
         res.status(500).send('Error adding product');
     }
 });

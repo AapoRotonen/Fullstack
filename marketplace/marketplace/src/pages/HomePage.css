@@ -1,111 +1,130 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-  }
-  
-  .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-  }
-  
-  .nav-buttons .btn {
-    background-color: #ff6f61;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin-left: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-buttons .btn:hover {
-    background-color: #ff4a3d;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 1rem;
-    flex: 1 1 calc(33.333% - 2rem);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .product-image {
-    max-width: 100%;
-    border-radius: 5px;
-  }
-  
-  .product-name {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-  }
-  
-  .product-description {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .product-price {
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
-  }
-  
-  .btn {
-    background-color: #ff6f61;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #ff4a3d;
-  }
-  
-  .footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.nav-buttons .btn {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-buttons .btn:hover {
+  background-color: #ff4a3d;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  flex: 1 1 calc(33.333% - 2rem);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.product-name {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.btn {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff4a3d;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 60vh; /* Adjust as needed */
+}
+
+.browse-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+}
